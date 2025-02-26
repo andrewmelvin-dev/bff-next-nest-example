@@ -14,11 +14,11 @@ An example of BFF architecture using a Nest.js/Node backend and a Next.js/React/
 
 3. **Install backend:**
    * Navigate to the backend directory: `cd backend`
-	 * Install the required node modules: `npm install`
+   * Install the required node modules: `npm install`
 
 4. **Install frontend:**
    * Navigate to the frontend directory: `cd ../frontend`
-	 * Install the required node modules: `npm install`
+   * Install the required node modules: `npm install`
 
 ## BACKEND
 
@@ -33,12 +33,15 @@ is there to prove the concept works.
 ### Backend testing
 
 In bash navigate to the backend directory and then run `npm run start`. Then visit http://localhost:3000/transactions in a browser. The expected response is:
+
 `[{"transactionType":"deposit","amount":100,"description":"pay"},{"transactionType":"withdrawal","amount":39,"description":"rent"},{"transactionType":"withdrawal","amount":11,"description":"groceries"},{"transactionType":"withdrawal","amount":1}]`
 
 The mobile response can be tested by using the Chrome DevTools Network Conditions tab to set the following custom user agent before refreshing the page:
+
 `Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/537.36 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/537.36`
 
 The expected response for mobile is:
+
 `[{"transactionType":"deposit","amount":100},{"transactionType":"withdrawal","amount":39},{"transactionType":"withdrawal","amount":11},{"transactionType":"withdrawal","amount":1}]`
 
 ## FRONTEND
