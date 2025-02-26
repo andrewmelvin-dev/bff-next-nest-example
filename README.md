@@ -30,6 +30,8 @@ into a new format (a better approach if a caching layer is being used).
 Clustering is used for horizontal scaling of the backend - not that it is needed in a local environment! But the code
 is there to prove the concept works.
 
+The basic structure of the backend app was initially generated via the `nest new` commmand.
+
 ### Backend testing
 
 In bash navigate to the backend directory and then run `npm run start`. Then visit http://localhost:3000/transactions in a browser. The expected response is:
@@ -51,6 +53,18 @@ X-Custom-User-Agent header is used to simulate a change to the frontend environm
 mobile interface. The mobile interface will not be sent the 'description' property, and if this is the case then React
 will replace that value with 'unknown'.
 
+The basic structure of the frontend app was initially generated via the `npx create-next-app` commmand.
+
 ### Frontend testing
 
 In a separate git bash window, navigate to the frontend directory and then run `npm run dev`. Then visit http://localhost:3001 in a browser.
+
+## FILE OVERVIEW
+
+* `backend/src/main.ts`: Bootstrap for the nest app. Implements clustering and forks a worker process for each CPU found.
+* `backend/src/app.controller.ts`: Defines the controller and accessible routes. This is where the user agent is detected, and a customised data response is returned.
+* `backend/src/data/transactions.ts`: Contains an array of transaction data.
+* `backend/src/enums/TransactionType.ts`: Defines the types of a transaction i.e. deposit or withdrawal.
+* `backend/src/interfaces/Transaction.ts`: Defines the structure of a Transaction.
+* `frontend/src/app/page.tsx`: Renders the home page of the frontend app.
+* `frontend/src/app/Transactions.tsx`: Renders the list of transactions, retrieving either the web or mobile version of the data from the backend.
